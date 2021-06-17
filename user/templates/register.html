@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags%}
+<h1 style="text-align: center; padding-top: 30px; color: #738290;">Create New Account </h1>
+
+<div class="container mt-5 form" style="width: 50%; margin-bottom: 50px;">
+    <div class="row justify-content-center mt-5" style="background-color: #A1B5D8; border-radius: 10px; padding: 30px;">
+        <div class="col-md-11">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form | crispy}}
+
+                <div class="row" style="text-align: center; margin: 0 1px;">
+                    <input type='submit' value="Create" class="btn user" style="color: #FFFCF7; border-color: #FFFCF7;"></input>
+                    <a style="color: #FFFCF7; border-color: #FFFCF7; text-align: center; margin-top: 10px;" href="{% url 'login' %}">Already Have Account?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

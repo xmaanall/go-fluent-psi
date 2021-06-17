@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+{% block content %}
+    <div class="container" style= "width: 800px; margin-top: 100px;">
+        {% for x in video %}
+        <h3 class="text-center mt-2 mb-2"style="padding-bottom:20px;">{{x.caption}}</h3>
+        <div  class="embed-responsive embed-responsive-16by9" controls="controls"  style="margin-bottom: 100px; border-radius: 30px;">
+            {% video x.video 'small'%}
+        </div>
+        {% endfor %}
+    </div>
+
+<div class="container" style="width:500px; text-align: center; margin-bottom: 100px;">
+    <a href="{% url 'quizes' %}" id="lessonbutton" class="btn border " style="margin-bottom: 50px;">Test Your Knowledge</a>
+    <hr style="margin-bottom: 80px;">
+            <h3> Help Us Improve</h3>
+        <form methode="post"  >
+            {%csrf_token%}
+            <textarea rows="4" cols="50" placeholder="What feature/option could we add to make lessones better?"></textarea>
+            <input type="submit" class="btn border " style="align-items: center;" />
+        </form>
+    
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+{% endblock  %} 
+

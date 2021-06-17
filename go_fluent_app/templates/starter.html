@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="{% static 'js/main.js' %}"></script>
+  
+</head>
+<h1 class="learn">I want to learn ..</h1>
+
+
+<form action="" method="POST">
+
+  {% csrf_token %}
+  {% if data %}
+    <div class="cards-list zA0zE">
+  {% for cat in data %}
+
+    <input type="hidden" name="languageName">
+    <a href="{% url 'language' title=cat.title %}" id = "lang">
+      <div class="cards1" role="button" value="Save" onclick="mySave()">
+        <div class="card" value="france">
+          <div class="card_image"> <img src="{{cat.image}}"/> </div>
+          <div class="card_title " id="{{cat.title}}"> {{cat.title}}
+          </div>
+        </div>
+    </a>
+  </div>
+  {% comment %} </div> {% endcomment %}
+ 
+  {% endfor %}
+  </div>
+  {% endif %}
+  
+</form>
+
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} django-msg" role="alert">
+  <h4 class="alert-heading text-center ">
+    {{message}}
+  </h4>
+</div>
+{% endfor %}
+{%endif %}
+{% endblock %}

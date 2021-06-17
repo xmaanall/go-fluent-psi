@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid p-5">
+    <div class="row inspire">
+        <div class="col-md-6 intro">
+            <h2>A different language is a different vision of life.</h1>
+            <p>-Federico Fellini</p>
+            <a href="{% url 'choose' %}" type="button" class="btn border">Start</a>
+        </div>
+        <div class="col-md-6 intro">
+            <img src="/static/img/translate.png" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid p-5">
+    <div class="row test">
+
+        <div class="col-md goal">
+            <div class="t">
+                <h4>Personalized learning</h4>
+                <p>Go Fluent lessons adapt to your learning style. Exercises are tailored to help you learn and review vocabulary effectively.</p>
+            </div>
+        </div>
+        
+        <div class="col-md goal">
+            <div class="t">
+                <h4>Receive immediate grading</h4>
+                <p>Instantly see which answers you get correct after submit all yours.</p>
+            </div>   
+        </div>
+
+        <div class="col-md goal">
+            <div class="t">
+                <h4>Well Educational Experiment</h4>
+                <p>We created Gofluent so that everyone could have a chance. Free language education – no hidden fees, no premium content, just free.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock  %}
